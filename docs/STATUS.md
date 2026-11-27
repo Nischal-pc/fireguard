@@ -26,6 +26,7 @@ Statuses: `todo` · `in progress` · `done` · `blocked (reason)` · `skipped (r
 | P0.9 | First Expo cloud build installed on the test tablet | todo | no `eas.json` yet; app runs in Expo Go |
 
 **P0 gate:** test app on a tablet from CI; Softrend access method known — not passed
+P1 may run in parallel with the open P0 items. The P0 gate must pass before P2 starts.
 
 ## P1 Walking skeleton — `docs/specs/p1-walking-skeleton.md` (approved)
 

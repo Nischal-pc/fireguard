@@ -31,7 +31,8 @@ Turn an `outline` spec into an `approved` one, using what earlier phases taught 
    the template needs that the idea does not say: who uses it and when, what
    they see, offline behaviour, what data changes, what is out of scope. Wait
    for the answers.
-3. Write `docs/specs/<phase>-<short-name>.md` from the template. Be concrete:
+3. From an up-to-date `main`, create a branch `spec/<phase>-<short-name>`
+   (`main` is protected). Write `docs/specs/<phase>-<short-name>.md` from the template. Be concrete:
    name tables and columns, engine functions, screens and states.
 4. Give each task an id in the phase it belongs to (next free number), and
    split the work into tasks of 1–3 days each, every task ending with

@@ -3,6 +3,7 @@
 Phase: P6   Discipline: FA   Owner: <you>   Status: outline
 (Run `/fg-spec refine docs/specs/p6-fire-alarm.md` first. This is the
 largest phase; expect the refined spec to split it further.)
+P6 may run in parallel with P5 (roadmap months 7–9); the P4 gate must pass first.
 
 ## Goal
 A full fire alarm annual inspection, including sites with 1,000+ devices and

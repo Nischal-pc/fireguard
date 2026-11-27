@@ -27,7 +27,7 @@ in `docs/decisions/`.
 | API | `apps/api` | Built (pack, sync upload, close check) |
 | Technician app | `apps/mobile` | P1 |
 | Coordinator portal | `apps/portal` | P2 onward |
-| PowerSync service + sync rules | `infra/powersync` (P1 task 3) | P1 |
+| PowerSync service + sync rules | `infra/powersync` (P1.3) | P1 |
 | Worker | `apps/worker` | P3 |
 | Softrend Bridge | `apps/bridge` | P2 (read), P7 (write-back) |
 | Cloud infrastructure as code | `infra/` | P2 (staging), P4 (production) |

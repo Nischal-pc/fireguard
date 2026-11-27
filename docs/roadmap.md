@@ -25,6 +25,10 @@ a **gate**: a test that must pass before the next phase starts (`/fg-gate`).
 | P6 Fire alarm | 7–9 | `p6-fire-alarm.md` (outline) | The biggest, slowest reports | Full FA annual in the pilot branch with no freeze |
 | P7 Write-back + rollout | 9–10 | `p7-writeback-rollout.md` (outline) | Close the loop with Softrend and go wide | **Softrend Service app retired** |
 
+Phases run one after another, gate by gate, with two stated overlaps: P1 runs
+alongside the open P0 items (see `docs/STATUS.md`), and P6 runs alongside P5
+(see `p6-fire-alarm.md`).
+
 ## Stage 2 — Dispatch (months 11–14)
 
 `s2-dispatch.md` (outline). Gate: **coordinators stop scheduling in Softrend.**

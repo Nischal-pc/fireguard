@@ -92,8 +92,8 @@ export function buildServer({ db, logger = false }: ServerOptions): FastifyInsta
 
 /**
  * TEMPORARY development sign-in: the caller sends its user id in the
- * x-user-id header. Replace with Microsoft Entra ID token checks in P1
- * (see docs/specs/p1-walking-skeleton.md, task 7). Never deploy this to production.
+ * x-user-id header. Replace with Microsoft Entra ID token checks in P2.1
+ * (see docs/specs/p2-extinguishers.md). Never deploy this to production.
  */
 function requireUser(req: FastifyRequest): string {
   const id = req.headers["x-user-id"];

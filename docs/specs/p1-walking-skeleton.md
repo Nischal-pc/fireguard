@@ -16,13 +16,13 @@ screens.
 
 ## Scope
 
-- Tablet: sign in, see today's job, open the FE inspection, answer the 6
+- Tablet: see today's job (development sign-in stand-in), open the FE inspection, answer the 6
   building questions (Yes / No / N/A), mark each device pass or fail, see
   progress from the engine, close the inspection.
 - Everything works in airplane mode. Changes upload when signal returns.
 - Server: PowerSync streams the job to the tablet; `/sync/upload` accepts
   changes; the server refuses to close an incomplete inspection.
-- Portal: one page listing today's jobs with % complete.
+- Real sign-in and the portal "today" page moved to P2 (P2.1, P2.2); see below.
 
 ## Out of scope
 
