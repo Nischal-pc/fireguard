@@ -62,3 +62,18 @@ older notes still make sense.
 - [ ] The 1,000-device list scrolls smoothly
 - [ ] The senior reviewer has reviewed the sync design
 - [ ] `pnpm check` passes in CI
+
+## Notes from earlier tasks
+
+- P1.2: the job screen blocks on a full-screen spinner while the pack loads.
+  P1.4 must not carry this forward: render from SQLite at once and show sync
+  as a small status.
+- P1.2: the development build in P1.4 needs `android.package` and
+  `ios.bundleIdentifier` in `apps/mobile/app.json`, and probably a cleartext
+  HTTP exception for the API on the LAN.
+- P1.2: the device list merges every discipline and rows don't show which one.
+  P1.5b should tag rows with the discipline or use a header per discipline,
+  and use a memoised row with a stable `renderItem` (50 ms tap budget).
+- P1.2: the pack route serves soft-deleted sites and returns 200 with no site
+  when the row is missing; the tablet guards it, but the API should filter
+  `deleted_at` and answer 404.

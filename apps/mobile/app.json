@@ -1,0 +1,10 @@
+{
+  "expo": {
+    "name": "FireGuard",
+    "slug": "fireguard",
+    "version": "0.1.0",
+    "orientation": "default",
+    "userInterfaceStyle": "light",
+    "ios": { "supportsTablet": true }
+  }
+}
