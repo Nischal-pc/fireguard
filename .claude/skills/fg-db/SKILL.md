@@ -1,6 +1,5 @@
 ---
-
-name: db-change
+name: fg-db
 description: The safe procedure for any database change in FireGuard — adding or changing a table, column, enum or index in packages/db/src/schema.ts, and generating its migration. Use whenever the schema needs to change.
 argument-hint: "[what to change]"
 ---

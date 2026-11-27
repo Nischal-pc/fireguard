@@ -1,5 +1,4 @@
 ---
-
 name: sync-data-reviewer
 description: Specialist review for any change to offline sync, the database schema or migrations, PowerSync sync rules, the /sync/upload endpoint, or what data a technician can see. Use proactively whenever packages/db, packages/shared/src/sync.ts, apps/api/src/sync-upload.ts or sync rules change. Read-only.
 tools: Read, Grep, Glob, Bash

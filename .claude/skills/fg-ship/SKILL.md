@@ -1,7 +1,6 @@
 ---
-
-name: ship
-description: Finish the current task — run all checks, get independent reviews, commit, push and open a pull request with gh. Only when the user types /ship.
+name: fg-ship
+description: Finish the current task — run all checks, get independent reviews, commit, push and open a pull request with gh. Only when the user types /fg-ship.
 disable-model-invocation: true
 allowed-tools: Read Grep Glob Bash(pnpm check) Bash(git status) Bash(git status *) Bash(git diff *) Bash(git log *) Bash(git add *) Bash(git commit *)
 ---
@@ -20,8 +19,14 @@ Ship the current branch. Notes from the user: $ARGUMENTS
    - the **field-ux-reviewer** subagent if anything changed in `apps/mobile`.
      Fix every Blocking finding and every Should-fix you agree with. List any you
      disagree with and why.
-4. Commit any remaining changes with a message in the form
-   `<area>: <what changed>` (for example `api: refuse close with untested devices`).
+4. If the branch is a task branch (`p<N>/...` or `s<N>/...`), update `docs/STATUS.md`: set
+   every task whose Branch / PR is this branch to `done`, fill in the branch, and add a one-line note of anything
+   left undone or learned. On other branches (`chore/*`, `fix/*`, `gate/*`,
+   `spec/*`), do not mark any task done. If the work
+   changed what later tasks need, add a line to that phase's spec under a
+   heading "Notes from earlier tasks". Then commit any remaining changes with a
+   message in the form `<area>: <what changed>` (for example
+   `api: refuse close with untested devices`).
 5. Ask the user to confirm, then `git push -u origin <branch>`.
 6. Open a pull request with `gh pr create`, filling in
    `.github/pull_request_template.md`: the spec and task, what changed, how it
