@@ -17,13 +17,13 @@ Statuses: `todo` · `in progress` · `done` · `blocked (reason)` · `skipped (r
 | --- | --- | --- | --- |
 | P0.1 | Tools installed (Node 22, pnpm 10, Git, Docker, VS Code, Claude Code) | done | |
 | P0.2 | Starter repo on GitHub, CI green, branch protection on `main` | done | Nischal-pc/firegaurd; first CI run green; `main` needs PR + `check` |
-| P0.3 | Claude Code setup (.claude folder, plugins, Context7) | in progress | |
+| P0.3 | Claude Code setup (.claude folder, plugins, Context7) | in progress | .claude + fg- skills in place; Context7 added to .mcp.json, approve it on next `claude` start |
 | P0.4 | Management: protected build hours, champion technician and coordinator | todo | |
 | P0.5 | Freeze log running with all technicians | todo | |
 | P0.6 | Softrend integration questions sent; written answer received | todo | blocks P2.4 |
 | P0.7 | Ride-alongs (3) and coordinator shadowing (2) | todo | |
-| P0.8 | FE-SK-v1 wording reviewed by a senior technician | todo | |
-| P0.9 | First Expo cloud build installed on the test tablet | todo | |
+| P0.8 | FE-SK-v1 wording reviewed by a senior technician | todo | template still `draft`, no `approvedBy` |
+| P0.9 | First Expo cloud build installed on the test tablet | todo | no `eas.json` yet; app runs in Expo Go |
 
 **P0 gate:** test app on a tablet from CI; Softrend access method known — not passed
 
