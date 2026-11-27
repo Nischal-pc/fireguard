@@ -54,12 +54,16 @@ export async function fetchPack(
       error: `Server answered with an error (status ${res.status})`,
     } as const;
     if (!res.ok) return serverError;
+    let pack: JobPack;
     try {
-      return { ok: true, pack: (await res.json()) as JobPack };
+      pack = (await res.json()) as JobPack;
     } catch {
       // A captive portal or the wrong port can answer 200 with HTML.
       return serverError;
     }
+    // The API does not yet refuse a work order whose site row is missing.
+    if (!pack.site) return { ok: false, error: "Site details missing" };
+    return { ok: true, pack };
   } finally {
     clearTimeout(timer);
   }

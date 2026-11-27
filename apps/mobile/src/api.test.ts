@@ -29,6 +29,16 @@ describe("fetchPack", () => {
     expect(await fetchPack("http://api", userId, "SAMPLE-0001")).toEqual({ ok: true, pack });
   });
 
+  it('reports "Site details missing" when the pack has no site', async () => {
+    mockFetch(async () =>
+      Response.json({ workOrder: { softrendWo: "SAMPLE-0001" }, disciplines: [] }),
+    );
+    expect(await fetchPack("http://api", userId, "SAMPLE-0001")).toEqual({
+      ok: false,
+      error: "Site details missing",
+    });
+  });
+
   it('reports "not found" on 404', async () => {
     mockFetch(async () => new Response(null, { status: 404 }));
     expect(await fetchPack("http://api", userId, "NOPE")).toEqual({
