@@ -1,9 +1,10 @@
 import { color, radius, size, space, text } from "@fireguard/ui-tokens";
 import { FlashList } from "@shopify/flash-list";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useReducer } from "react";
 import { ActivityIndicator, Pressable, StyleSheet, Text, View } from "react-native";
 import { SafeAreaProvider, useSafeAreaInsets } from "react-native-safe-area-context";
-import { fetchPack, type JobPack, type PackResult } from "./src/api";
+import { fetchPack, type JobPack } from "./src/api";
+import { allDevices, checkSettings, initialPackState, packReducer } from "./src/packState";
 
 // Expo inlines EXPO_PUBLIC_* at build time; only static dot access works.
 const apiUrl = process.env.EXPO_PUBLIC_API_URL;
@@ -23,18 +24,17 @@ export default function App() {
 
 function Screen() {
   const insets = useSafeAreaInsets();
-  const [result, setResult] = useState<PackResult | null>(null);
+  const [state, dispatch] = useReducer(packReducer, initialPackState);
 
   const load = useCallback(async () => {
-    if (!apiUrl || !devUserId || !workOrder) {
-      setResult({
-        ok: false,
-        error: "Missing settings. Create apps/mobile/.env from .env.example, then restart Expo.",
-      });
+    const settings = checkSettings({ apiUrl, userId: devUserId, workOrder });
+    if (!settings.ok) {
+      dispatch({ type: "loaded", result: settings });
       return;
     }
-    setResult(null);
-    setResult(await fetchPack(apiUrl, devUserId, workOrder));
+    dispatch({ type: "load" });
+    const result = await fetchPack(settings.apiUrl, settings.userId, settings.workOrder);
+    dispatch({ type: "loaded", result });
   }, []);
 
   useEffect(() => {
@@ -60,14 +60,14 @@ function Screen() {
           </Text>
         ) : null}
       </View>
-      {result === null ? (
+      {state.kind === "loading" ? (
         <View style={[styles.center, { paddingBottom: space.xxl + insets.bottom }]}>
           <ActivityIndicator size="large" color={color.fire} />
           <Text style={styles.secondary}>Loading job…</Text>
         </View>
-      ) : !result.ok ? (
+      ) : state.kind === "error" ? (
         <View style={[styles.center, { paddingBottom: space.xxl + insets.bottom }]}>
-          <Text style={styles.error}>{result.error}</Text>
+          <Text style={styles.error}>{state.message}</Text>
           <Pressable
             onPress={load}
             accessibilityRole="button"
@@ -77,7 +77,7 @@ function Screen() {
           </Pressable>
         </View>
       ) : (
-        <Job pack={result.pack} bottomInset={insets.bottom} />
+        <Job pack={state.pack} bottomInset={insets.bottom} />
       )}
     </View>
   );
@@ -85,7 +85,7 @@ function Screen() {
 
 function Job({ pack, bottomInset }: { pack: JobPack; bottomInset: number }) {
   const { workOrder: wo, site, disciplines } = pack;
-  const devices = disciplines.flatMap((d) => d.devices);
+  const devices = allDevices(pack);
   return (
     <FlashList
       data={devices}
