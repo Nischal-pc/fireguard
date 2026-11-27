@@ -16,7 +16,7 @@ Statuses: `todo` · `in progress` · `done` · `blocked (reason)` · `skipped (r
 | ID | Task | Status | Notes |
 | --- | --- | --- | --- |
 | P0.1 | Tools installed (Node 22, pnpm 10, Git, Docker, VS Code, Claude Code) | done | |
-| P0.2 | Starter repo on GitHub, CI green, branch protection on `main` | in progress | |
+| P0.2 | Starter repo on GitHub, CI green, branch protection on `main` | done | Nischal-pc/firegaurd; first CI run green; `main` needs PR + `check` |
 | P0.3 | Claude Code setup (.claude folder, plugins, Context7) | in progress | |
 | P0.4 | Management: protected build hours, champion technician and coordinator | todo | |
 | P0.5 | Freeze log running with all technicians | todo | |
