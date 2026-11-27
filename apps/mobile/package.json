@@ -5,7 +5,8 @@
   "main": "index.ts",
   "scripts": {
     "start": "expo start",
-    "typecheck": "tsc -p tsconfig.json"
+    "typecheck": "tsc -p tsconfig.json",
+    "test": "vitest run"
   },
   "dependencies": {
     "@fireguard/engine": "workspace:*",
