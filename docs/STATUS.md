@@ -1,4 +1,4 @@
-﻿# FireGuard Pro â€” status
+# FireGuard Pro — status
 
 Single source of truth for progress. Read it at the start of every session
 (`/fg-next`). Updated **inside feature branches**: `/fg-start` marks a task
@@ -6,7 +6,7 @@ Single source of truth for progress. Read it at the start of every session
 always shows what has actually been merged. Gates are marked passed only by
 `/fg-gate`, with the user's confirmation.
 
-Statuses: `todo` Â· `in progress` Â· `done` Â· `blocked (reason)` Â· `skipped (reason)`
+Statuses: `todo` · `in progress` · `done` · `blocked (reason)` · `skipped (reason)`
 
 **Current phase:** P1 Walking skeleton
 **Last updated:** 2026-11-26
@@ -25,9 +25,9 @@ Statuses: `todo` Â· `in progress` Â· `done` Â· `blocked (reason)` Â· `sk
 | P0.8 | FE-SK-v1 wording reviewed by a senior technician | todo | template still `draft`, no `approvedBy` |
 | P0.9 | First Expo cloud build installed on the test tablet | todo | no `eas.json` yet; app runs in Expo Go |
 
-**P0 gate:** test app on a tablet from CI; Softrend access method known â€” not passed
+**P0 gate:** test app on a tablet from CI; Softrend access method known — not passed
 
-## P1 Walking skeleton â€” `docs/specs/p1-walking-skeleton.md` (approved)
+## P1 Walking skeleton — `docs/specs/p1-walking-skeleton.md` (approved)
 
 | ID | Task | Status | Branch / PR | Notes |
 | --- | --- | --- | --- | --- |
@@ -44,7 +44,7 @@ Statuses: `todo` Â· `in progress` Â· `done` Â· `blocked (reason)` Â· `sk
 
 **P1 gate:** not passed
 
-## P2 Engine + extinguishers â€” `docs/specs/p2-extinguishers.md` (outline)
+## P2 Engine + extinguishers — `docs/specs/p2-extinguishers.md` (outline)
 
 | ID | Task | Status | Notes |
 | --- | --- | --- | --- |
