@@ -32,7 +32,7 @@ P1 may run in parallel with the open P0 items. The P0 gate must pass before P2 s
 
 | ID | Task | Status | Branch / PR | Notes |
 | --- | --- | --- | --- | --- |
-| P1.1 | Run the starter locally | in progress | p1/task-2-job-screen | finishing as part of P1.2 |
+| P1.1 | Run the starter locally | in progress | p1/task-2-job-screen | ships in the P1.2 pull request, no PR of its own |
 | P1.2 | Mobile app shows the job pack (online) | in progress | p1/task-2-job-screen | |
 | P1.3 | PowerSync running locally | todo | | |
 | P1.4 | Tablet local database + upload connector | todo | | needs Expo development build |
@@ -47,20 +47,20 @@ P1 may run in parallel with the open P0 items. The P0 gate must pass before P2 s
 
 ## P2 Engine + extinguishers — `docs/specs/p2-extinguishers.md` (outline)
 
-| ID | Task | Status | Notes |
-| --- | --- | --- | --- |
-| P2.1 | Real sign-in (Entra ID) | todo | needs Entra app registration |
-| P2.2 | Portal "today" page | todo | |
-| P2.3 | Staging environment | todo | needs cloud account |
-| P2.4 | Softrend Bridge, read side | blocked (P0.6) | |
-| P2.5 | Device registry import | todo | |
-| P2.6 | Barcode / QR scan | todo | |
-| P2.7 | Photos with background upload | todo | |
-| P2.8 | Deficiencies | todo | |
-| P2.9 | Device changes on site | todo | |
-| P2.10 | Copy from last inspection, pass-all with confirm | todo | |
-| P2.11 | Signature and job close | todo | |
-| P2.12 | Sentry and tap-time readout | todo | |
+| ID | Task | Status | Branch / PR | Notes |
+| --- | --- | --- | --- | --- |
+| P2.1 | Real sign-in (Entra ID) | todo | | needs Entra app registration |
+| P2.2 | Portal "today" page | todo | | |
+| P2.3 | Staging environment | todo | | needs cloud account |
+| P2.4 | Softrend Bridge, read side | blocked (P0.6) | | |
+| P2.5 | Device registry import | todo | | |
+| P2.6 | Barcode / QR scan | todo | | |
+| P2.7 | Photos with background upload | todo | | |
+| P2.8 | Deficiencies | todo | | |
+| P2.9 | Device changes on site | todo | | |
+| P2.10 | Copy from last inspection, pass-all with confirm | todo | | |
+| P2.11 | Signature and job close | todo | | |
+| P2.12 | Sentry and tap-time readout | todo | | |
 
 **P2 gate:** not passed
 
