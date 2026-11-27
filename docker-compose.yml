@@ -1,0 +1,28 @@
+# Local development services.
+# Start:  pnpm db:up      Stop: pnpm db:down
+#
+# Postgres runs with logical replication turned on (wal_level=logical),
+# which PowerSync needs to stream changes to the tablets. The PowerSync
+# service itself is added in the walking skeleton (docs/specs/p1-walking-skeleton.md).
+
+services:
+  postgres:
+    image: postgres:16
+    container_name: fireguard-postgres
+    environment:
+      POSTGRES_USER: fireguard
+      POSTGRES_PASSWORD: fireguard
+      POSTGRES_DB: fireguard
+    command: ["postgres", "-c", "wal_level=logical"]
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U fireguard"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  pgdata:

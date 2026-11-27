@@ -1,0 +1,136 @@
+{
+  "id": "FE-SK-v1",
+  "discipline": "FE",
+  "province": "SK",
+  "version": 1,
+  "title": "Annual Fire Extinguisher Inspection",
+  "standard": "Saskatchewan fire code (National Fire Code adoption) and the portable extinguisher standard it references. DRAFT: confirm edition and wording before publishing.",
+  "status": "draft",
+  "questions": [
+    {
+      "key": "all_areas_accessible",
+      "text": "Were all areas accessible?",
+      "required": true,
+      "onNo": {
+        "severity": "code_violation",
+        "suggestedDescription": "Not all areas were accessible during the inspection. Areas not inspected: [list]. Follow-up visit required."
+      }
+    },
+    {
+      "key": "dry_chem_after_1984",
+      "text": "All pressurized dry chemical fire extinguishers manufactured after 1984?",
+      "required": true,
+      "onNo": {
+        "severity": "life_safety",
+        "suggestedDescription": "Dry chemical extinguisher(s) manufactured in or before 1984 found in service. Remove from service and replace."
+      }
+    },
+    {
+      "key": "co2_after_1955",
+      "text": "All CO2 extinguishers manufactured after 1955?",
+      "required": true,
+      "onNo": {
+        "severity": "life_safety",
+        "suggestedDescription": "CO2 extinguisher(s) manufactured in or before 1955 found in service. Remove from service and replace."
+      }
+    },
+    {
+      "key": "correct_classification",
+      "text": "Are the fire extinguishers of the correct classification for all areas of the building?",
+      "required": true,
+      "onNo": {
+        "severity": "code_violation",
+        "suggestedDescription": "Extinguisher classification does not match the hazard in: [area]. Recommend: [type]."
+      }
+    },
+    {
+      "key": "recalled_removed",
+      "text": "All recalled fire extinguishers have been removed from service",
+      "required": true,
+      "onNo": {
+        "severity": "life_safety",
+        "suggestedDescription": "Recalled fire extinguisher(s) found in service. Unit identified for removal and replacement."
+      }
+    },
+    {
+      "key": "travel_distance_ok",
+      "text": "Is the maximum travel distance of 75 feet maintained throughout?",
+      "required": true,
+      "onNo": {
+        "severity": "code_violation",
+        "suggestedDescription": "Travel distance to an extinguisher exceeds the maximum in: [area]. Additional extinguisher required."
+      }
+    }
+  ],
+  "deviceFields": [
+    {
+      "key": "size_type",
+      "label": "Extinguisher size/type",
+      "type": "select",
+      "options": [
+        "2.5 lb ABC",
+        "5 lb ABC",
+        "10 lb ABC",
+        "20 lb ABC",
+        "5 lb CO2",
+        "10 lb CO2",
+        "20 lb CO2",
+        "6 L Class K",
+        "2.5 gal Water"
+      ],
+      "kind": "identity",
+      "required": true
+    },
+    { "key": "manufacturer", "label": "Manufacturer", "type": "text", "kind": "identity" },
+    {
+      "key": "serial",
+      "label": "Serial no.",
+      "type": "text",
+      "kind": "identity",
+      "required": true
+    },
+    { "key": "manufacture_year", "label": "Manufacture year", "type": "year", "kind": "identity" },
+    {
+      "key": "six_year_due",
+      "label": "Next 6-year maintenance",
+      "type": "year",
+      "kind": "identity"
+    },
+    { "key": "hydro_due", "label": "Next hydrostatic test", "type": "year", "kind": "identity" }
+  ],
+  "deviceChecks": [
+    { "key": "mounted_accessible", "text": "Mounted, visible and unobstructed" },
+    {
+      "key": "gauge_ok",
+      "text": "Pressure gauge in operable range",
+      "onFail": {
+        "severity": "life_safety",
+        "suggestedDescription": "Extinguisher pressure out of operable range. Recharge or replace."
+      }
+    },
+    { "key": "seal_intact", "text": "Safety pin and tamper seal intact" },
+    { "key": "hose_nozzle_ok", "text": "Hose and nozzle in good condition and unobstructed" },
+    {
+      "key": "no_damage",
+      "text": "No physical damage, corrosion or leakage",
+      "onFail": {
+        "severity": "life_safety",
+        "suggestedDescription": "Extinguisher shows damage, corrosion or leakage. Remove from service and replace."
+      }
+    },
+    { "key": "label_legible", "text": "Operating instructions legible and facing outward" },
+    {
+      "key": "maintenance_not_overdue",
+      "text": "6-year maintenance and hydrostatic test not overdue",
+      "onFail": {
+        "severity": "code_violation",
+        "suggestedDescription": "Extinguisher overdue for 6-year maintenance or hydrostatic test."
+      }
+    },
+    { "key": "tag_updated", "text": "Inspection tag updated" }
+  ],
+  "rules": {
+    "photoRequiredOnFail": true,
+    "allDevicesRequired": true
+  }
+}

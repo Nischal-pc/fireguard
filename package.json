@@ -1,0 +1,31 @@
+{
+  "name": "fireguard",
+  "private": true,
+  "description": "FireGuard Pro: offline-first fire inspection platform (technician app, coordinator portal, API, Softrend Bridge)",
+  "packageManager": "pnpm@10.28.0",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "test": "turbo run test",
+    "typecheck": "turbo run typecheck",
+    "lint": "biome check .",
+    "format": "biome format --write .",
+    "check": "pnpm lint && pnpm typecheck && pnpm test",
+    "db:up": "docker compose up -d postgres",
+    "db:down": "docker compose down",
+    "db:generate": "pnpm --filter @fireguard/db generate",
+    "db:migrate": "pnpm --filter @fireguard/db migrate",
+    "db:seed": "pnpm --filter @fireguard/db seed",
+    "make:big-site": "node scripts/make-big-site.mjs"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.6.9",
+    "@types/node": "^26.6.11",
+    "turbo": "^2.11.13",
+    "typescript": "^7.0.2",
+    "vitest": "^5.1.2"
+  }
+}

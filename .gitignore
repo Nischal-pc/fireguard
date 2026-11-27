@@ -1,0 +1,16 @@
+node_modules/
+dist/
+.turbo/
+.next/
+.expo/
+coverage/
+*.log
+.env
+.env.*
+!.env.example
+.DS_Store
+test-data/big-site.json
+
+# Claude Code personal overrides (never commit)
+.claude/settings.local.json
+CLAUDE.local.md
