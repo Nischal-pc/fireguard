@@ -33,7 +33,23 @@ describe("fetchPack", () => {
     mockFetch(async () => new Response(null, { status: 404 }));
     expect(await fetchPack("http://api", userId, "NOPE")).toEqual({
       ok: false,
-      error: "Work order NOPE not found",
+      error: "Work order not found",
+    });
+  });
+
+  it("reports a server error with its status on 5xx", async () => {
+    mockFetch(async () => new Response("boom", { status: 503 }));
+    expect(await fetchPack("http://api", userId, "SAMPLE-0001")).toEqual({
+      ok: false,
+      error: "Server answered with an error (status 503)",
+    });
+  });
+
+  it("reports a server error, not a network error, when 200 is not JSON", async () => {
+    mockFetch(async () => new Response("<html>Wi-Fi login</html>", { status: 200 }));
+    expect(await fetchPack("http://api", userId, "SAMPLE-0001")).toEqual({
+      ok: false,
+      error: "Server answered with an error (status 200)",
     });
   });
 
