@@ -10,18 +10,20 @@ Spec work: $ARGUMENTS
 
 Turn an `outline` spec into an `approved` one, using what earlier phases taught us.
 
-1. Read the spec, `docs/product/vision.md`, `docs/architecture.md`,
+1. From an up-to-date `main`, create a branch `spec/<phase>-refine`
+   (`main` is protected).
+2. Read the spec, `docs/product/vision.md`, `docs/architecture.md`,
    `docs/roadmap.md`, `docs/STATUS.md` (notes on finished tasks), the previous
    phase's gate report in `docs/gates/` if it exists, and the code the phase
    will touch.
-2. For each task, add: the files and tables it touches, the engine functions
+3. For each task, add: the files and tables it touches, the engine functions
    it needs, screens and their states (empty, offline, syncing, error), tests
    by name, and anything the user must do. Split any task bigger than 3 days.
-3. List what is now known to be wrong or missing in the outline, and propose
+4. List what is now known to be wrong or missing in the outline, and propose
    changes. Never drop a gate criterion without saying so.
-4. Ask the user up to 5 short questions, all in one message, and wait.
-5. Update the spec, set `Status: approved`, add the task rows to
-   `docs/STATUS.md`, on a branch `spec/<phase>-refine`. Suggest `/fg-ship`.
+5. Ask the user up to 5 short questions, all in one message, and wait.
+6. Update the spec, set `Status: approved`, add the task rows to
+   `docs/STATUS.md`. Suggest `/fg-ship`.
 
 ## New spec mode (anything else)
 
