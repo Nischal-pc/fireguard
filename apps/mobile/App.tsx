@@ -150,7 +150,7 @@ function DeviceRow({ device }: { device: Device }) {
 const styles = StyleSheet.create({
   screen: { flex: 1, backgroundColor: color.bone },
   appBar: {
-    backgroundColor: color.fire,
+    backgroundColor: color.fireSolid,
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
@@ -205,12 +205,12 @@ const styles = StyleSheet.create({
     minHeight: size.button,
     minWidth: 160,
     borderRadius: radius.button,
-    backgroundColor: color.fire,
+    backgroundColor: color.fireSolid,
     alignItems: "center",
     justifyContent: "center",
     paddingHorizontal: space.xl,
   },
-  buttonPressed: { backgroundColor: color.firePressed },
+  buttonPressed: { backgroundColor: color.fireSolidPressed },
   buttonText: { color: color.card, fontSize: text.body, fontWeight: "700" },
   row: {
     minHeight: size.minTap,

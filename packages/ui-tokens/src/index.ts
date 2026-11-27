@@ -4,8 +4,10 @@
  */
 
 export const color = {
-  fire: "#D95F0A", // primary actions, app bar, active states
-  firePressed: "#9C3F00", // pressed buttons, dark text on orange
+  fire: "#D95F0A", // accents, spinners, active states; too light for white text
+  // White text sits on fireSolid, never on fire (3.8:1), so it stays readable in sunlight.
+  fireSolid: "#9C3F00", // app bar, primary buttons, dark orange text (6.7:1 with white)
+  fireSolidPressed: "#7A3100", // pressed primary buttons (9.3:1 with white)
   fireTint: "#FFF4EF", // banners, info cards
   bone: "#F5F2EE", // app background
   card: "#FFFFFF",

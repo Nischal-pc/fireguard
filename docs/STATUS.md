@@ -33,7 +33,7 @@ P1 may run in parallel with the open P0 items. The P0 gate must pass before P2 s
 | ID | Task | Status | Branch / PR | Notes |
 | --- | --- | --- | --- | --- |
 | P1.1 | Run the starter locally | done | p1/task-2-job-screen | shipped in the P1.2 pull request |
-| P1.2 | Mobile app shows the job pack (online) | done | p1/task-2-job-screen | pack validated with jobPackSchema (shared); white-on-fire contrast still open |
+| P1.2 | Mobile app shows the job pack (online) | done | p1/task-2-job-screen | pack validated with jobPackSchema (shared); white text now on fireSolid (6.7:1) |
 | P1.3 | PowerSync running locally | todo | | |
 | P1.4 | Tablet local database + upload connector | todo | | needs Expo development build |
 | P1.5a | Inspection: building questions | todo | | |
