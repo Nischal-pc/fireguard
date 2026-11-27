@@ -2,7 +2,7 @@ import { readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { type Db, type SiteFixture, schema, seedSite } from "@fireguard/db";
 import { createTestDb } from "@fireguard/db/testing";
-import { type CrudEntry, newId } from "@fireguard/shared";
+import { type CrudEntry, jobPackSchema, newId } from "@fireguard/shared";
 import { count, eq } from "drizzle-orm";
 import type { FastifyInstance } from "fastify";
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
@@ -123,6 +123,15 @@ describe("API", () => {
     expect(body.disciplines[0].devices).toHaveLength(fixture.devices.length);
     expect(body.disciplines[0].devices[0].location).toBe("Bleed-off truck, NH3 site");
     expect(body.disciplines[0].progress.percentComplete).toBe(0);
+  });
+
+  it("matches the shape the tablet validates (jobPackSchema)", async () => {
+    const res = await app.inject({
+      method: "GET",
+      url: "/work-orders/SAMPLE-0001/pack",
+      headers: { "x-user-id": techId },
+    });
+    expect(jobPackSchema.safeParse(res.json()).error).toBeUndefined();
   });
 });
 

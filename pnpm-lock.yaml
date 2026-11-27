@@ -57,6 +57,9 @@ importers:
       '@fireguard/engine':
         specifier: workspace:*
         version: link:../../packages/engine
+      '@fireguard/shared':
+        specifier: workspace:*
+        version: link:../../packages/shared
       '@fireguard/ui-tokens':
         specifier: workspace:*
         version: link:../../packages/ui-tokens

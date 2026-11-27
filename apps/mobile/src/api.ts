@@ -1,34 +1,17 @@
-import type { Evaluation, Template } from "@fireguard/engine";
+import { type JobPackResponse, jobPackSchema } from "@fireguard/shared";
 
-/** The parts of GET /work-orders/:softrendWo/pack this screen reads (apps/api/src/server.ts). */
-export interface JobPack {
-  workOrder: {
-    softrendWo: string;
-    scheduledAt: string;
-    coordinatorNote: string | null;
-  };
-  site: { name: string; address: string | null; city: string | null; accessNotes: string | null };
-  disciplines: Array<{
-    woDiscipline: { id: string; discipline: string; templateId: string };
-    template: Template;
-    devices: Array<{
-      id: string;
-      seq: number;
-      barcode: string | null;
-      location: string | null;
-      attributes: Record<string, unknown>;
-    }>;
-    progress: Evaluation;
-  }>;
-}
+/** The job pack the screen shows, once the site is known to be there. */
+export type JobPack = Omit<JobPackResponse, "site"> & {
+  site: NonNullable<JobPackResponse["site"]>;
+};
 
 export type PackResult = { ok: true; pack: JobPack } | { ok: false; error: string };
 
 const TIMEOUT_MS = 10_000;
 
 /**
- * Online-only job pack load for P1 task 2. Task 4 replaces this with local
- * SQLite, so a tap never waits on the network.
+ * Online-only job pack load for P1.2. P1.4 replaces this with local
+ * SQLite, so a tap never waits on the network. Never throws.
  */
 export async function fetchPack(
   baseUrl: string,
@@ -47,23 +30,26 @@ export async function fetchPack(
     } catch {
       return { ok: false, error: "Can't reach server. Check Wi-Fi and the API address." };
     }
-    if (res.status === 404) return { ok: false, error: "Work order not found" };
+    if (res.status === 404) return { ok: false, error: `Work order ${softrendWo} not found` };
     if (res.status === 401) return { ok: false, error: "Sign-in required" };
-    const serverError = {
-      ok: false,
-      error: `Server answered with an error (status ${res.status})`,
-    } as const;
-    if (!res.ok) return serverError;
-    let pack: JobPack;
+    if (!res.ok)
+      return { ok: false, error: `Server answered with an error (status ${res.status})` };
+    let body: unknown;
     try {
-      pack = (await res.json()) as JobPack;
+      body = await res.json();
     } catch {
       // A captive portal or the wrong port can answer 200 with HTML.
-      return serverError;
+      return {
+        ok: false,
+        error: "Got a page that isn't FireGuard. Check the Wi-Fi login and the API address.",
+      };
     }
+    const parsed = jobPackSchema.safeParse(body);
+    if (!parsed.success) return { ok: false, error: "Server sent a job this app can't read" };
+    const { site, ...rest } = parsed.data;
     // The API does not yet refuse a work order whose site row is missing.
-    if (!pack.site) return { ok: false, error: "Site details missing" };
-    return { ok: true, pack };
+    if (!site) return { ok: false, error: "Site details missing" };
+    return { ok: true, pack: { ...rest, site } };
   } finally {
     clearTimeout(timer);
   }
