@@ -1,6 +1,5 @@
 ---
-
-name: new-template
+name: fg-template
 description: Create a new inspection template or a new version of one (fire alarm, extinguisher, emergency lighting, exit signs) for a province, in packages/templates. Use when adding a discipline, a province, or fixing wording in a published template.
 argument-hint: "[discipline] [province] [new|next-version]"
 ---

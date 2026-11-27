@@ -31,22 +31,27 @@ disciplines, Softrend Bridge (we use the seeded sample site).
 
 ## Tasks (in order — one pull request each)
 
-1. Run the starter locally (database, migrations, seed, API).
-2. Create `apps/mobile` with Expo; show the job pack from the API (online only).
-3. Add PowerSync locally: service in docker-compose, sync rules, dev token
-   endpoint on the API.
-4. Tablet local database: PowerSync schema, connector (`uploadData` sends to
-   `/sync/upload`), today's job read from local SQLite.
-5. Inspection screens: questions, device list (FlashList), pass/fail, progress
-   from `@fireguard/engine`, close button enabled only when `canClose`.
-6. Airplane-mode test: whole sample inspection offline, reconnect, verify in
-   Postgres and `audit_log`.
-7. Real sign-in with Microsoft Entra ID; API verifies tokens; remove the
-   `x-user-id` stand-in.
-8. Create `apps/portal` with Next.js: today's jobs with % complete.
-9. Staging: API, Postgres and PowerSync in the Canadian cloud region; app build
-   on the test tablet pointing at staging.
-10. Soak test: 1,000-device site, full day offline, measure tap time.
+- **P1.1** Run the starter locally (database, migrations, seed, API).
+- **P1.2** Create `apps/mobile` with Expo; show the job pack from the API
+  (online only), device list with FlashList.
+- **P1.3** Add PowerSync locally: service in docker-compose, sync rules, dev
+  token endpoint on the API.
+- **P1.4** Tablet local database: PowerSync schema, connector (`uploadData`
+  sends to `/sync/upload`), today's job read from local SQLite. From here on
+  the app runs as an Expo development build (native code).
+- **P1.5** Inspection screens: questions, device list (FlashList), pass/fail,
+  progress from `@fireguard/engine`, close button enabled only when
+  `canClose`. One pull request per part: (a) questions, (b) device list and
+  pass/fail, (c) progress and blockers, (d) close.
+- **P1.6** Airplane-mode test: whole sample inspection offline, reconnect,
+  verify in Postgres and `audit_log`; Maestro flow for the same.
+- **P1.10** Soak test: 1,000-device site, full day offline, measure tap time,
+  against the API on the developer's PC over Wi-Fi.
+
+Moved to the start of P2 (they matter before champion testing, but do not
+prove offline sync): real sign-in (now **P2.1**), portal "today" page (now
+**P2.2**), staging (now **P2.3**). Task numbers 7–9 are left unused in P1 so
+older notes still make sense.
 
 ## Done when
 

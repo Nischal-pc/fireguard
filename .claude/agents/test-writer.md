@@ -1,5 +1,4 @@
 ---
-
 name: test-writer
 description: Writes or extends automated tests for code that already exists. Use when a change lacks tests, when a bug needs a test that reproduces it, or when asked to raise coverage. Only edits test files.
 tools: Read, Grep, Glob, Edit, Write, Bash

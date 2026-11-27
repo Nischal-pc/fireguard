@@ -1,5 +1,4 @@
 ---
-
 name: field-ux-reviewer
 description: Reviews technician app screens (apps/mobile) for real field conditions — gloves, sunlight, one hand, no signal, big device lists. Use proactively after any change to a mobile screen or component. Read-only.
 tools: Read, Grep, Glob, Bash

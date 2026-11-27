@@ -1,7 +1,6 @@
 ---
-
 name: code-reviewer
-description: Reviews the current branch against main before a pull request. Use proactively after finishing a task or before /ship. Read-only; reports findings, never edits.
+description: Reviews the current branch against main before a pull request. Use proactively after finishing a task or before /fg-ship. Read-only; reports findings, never edits.
 tools: Read, Grep, Glob, Bash
 model: inherit
 color: blue

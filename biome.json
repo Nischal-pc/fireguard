@@ -7,7 +7,8 @@
       "!**/dist",
       "!**/.turbo",
       "!**/drizzle/meta",
-      "!test-data/big-site.json"
+      "!test-data/big-site.json",
+      "!**/*.md"
     ]
   },
   "formatter": {
