@@ -21,7 +21,9 @@ Start work on: $ARGUMENTS
    - the task is `blocked` in `docs/STATUS.md`;
    - the previous phase's gate is not passed (tell the user to run `/fg-gate`),
      unless the note under that gate in `docs/STATUS.md`, or the task's spec,
-     says this phase may run in parallel.
+     says this phase may run in parallel;
+   - any other gate that the `docs/STATUS.md` note or the task's spec says
+     must pass first is not passed.
 4. Switch to an up-to-date `main` (`git pull`), then create a branch named
    `<phase>/<task-id>-<short-name>` in lowercase, for example
    `p1/p1.3-powersync-local`.

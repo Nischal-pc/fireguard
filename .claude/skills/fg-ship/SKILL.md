@@ -20,7 +20,7 @@ Ship the current branch. Notes from the user: $ARGUMENTS
      Fix every Blocking finding and every Should-fix you agree with. List any you
      disagree with and why.
 4. If the branch is a task branch (`p<N>/...` or `s<N>/...`), update `docs/STATUS.md`: set
-   this task to `done`, fill in the branch, and add a one-line note of anything
+   every task whose Branch / PR is this branch to `done`, fill in the branch, and add a one-line note of anything
    left undone or learned. On other branches (`chore/*`, `fix/*`, `gate/*`,
    `spec/*`), do not mark any task done. If the work
    changed what later tasks need, add a line to that phase's spec under a
