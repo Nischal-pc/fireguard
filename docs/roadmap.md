@@ -9,7 +9,7 @@ a **gate**: a test that must pass before the next phase starts (`/fg-gate`).
 - **approved**: detailed enough to build; `/fg-start` may start its tasks.
 - **outline**: goal, tasks and gate are agreed, details are not. Before the
   first task of an outline phase, run `/fg-spec refine <spec file>` and get
-  it approved. Plans made months ahead are always wrong in the details; we fill
+  it approved, unless the spec names tasks that may start earlier. Plans made months ahead are always wrong in the details; we fill
   them in with what we learned.
 
 ## Stage 1 — Field platform (replaces the Softrend Service app)
@@ -25,9 +25,9 @@ a **gate**: a test that must pass before the next phase starts (`/fg-gate`).
 | P6 Fire alarm | 7–9 | `p6-fire-alarm.md` (outline) | The biggest, slowest reports | Full FA annual in the pilot branch with no freeze |
 | P7 Write-back + rollout | 9–10 | `p7-writeback-rollout.md` (outline) | Close the loop with Softrend and go wide | **Softrend Service app retired** |
 
-Phases run one after another, gate by gate, with two stated overlaps: P1 runs
-alongside the open P0 items (see `docs/STATUS.md`), and P6 runs alongside P5
-(see `p6-fire-alarm.md`).
+Phases run one after another, gate by gate, with three stated overlaps: P1 runs
+alongside the open P0 items (see `docs/STATUS.md`), P6 runs alongside P5
+(see `p6-fire-alarm.md`), and P7 starts in month 9 while P6 finishes.
 
 ## Stage 2 — Dispatch (months 11–14)
 

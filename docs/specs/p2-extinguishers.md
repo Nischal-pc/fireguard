@@ -2,7 +2,7 @@
 
 Phase: P2   Discipline(s): FE   Owner: <you>   Status: outline
 (Run `/fg-spec refine docs/specs/p2-extinguishers.md` before P2.4.
-P2.1–P2.3 are detailed enough to start once the P1 gate has passed.)
+P2.1–P2.3 are detailed enough to start once the P0 and P1 gates have passed.)
 
 ## Goal
 A technician completes a real annual extinguisher inspection on a real
@@ -63,7 +63,8 @@ PDF reports (P3), other disciplines (P3, P6), write-back to Softrend (P7).
 - [ ] Champion technician completes at least 3 real FE jobs on staging in
       parallel with Softrend, and the results match
 - [ ] Every failed device has a photo and a deficiency
-- [ ] Sign-in works offline for a full day after signing in once
+- [ ] Sign-in works offline for a full day after signing in once (the full
+  7 days in `docs/architecture.md` is checked at the P4 gate)
 - [ ] Coordinator sees the jobs and progress in the portal
 - [ ] All performance budgets in `docs/architecture.md` that apply are met
 - [ ] `pnpm check` green; reviewers' verdicts recorded in each PR

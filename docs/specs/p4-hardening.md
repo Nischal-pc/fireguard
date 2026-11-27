@@ -31,6 +31,7 @@ security, tested backups, alerts, managed tablets, trained people.
 ## Done when (P4 gate)
 - [ ] Reviewer signs off security and sync
 - [ ] Every performance budget passes on the slowest tablet
+- [ ] Sign-in and inspections work fully offline for 7 days, no data loss
 - [ ] A restore from backup has been done and timed
 - [ ] Alerts reach your phone in a test
 - [ ] Pilot tablets enrolled; pilot branch data imported and spot-checked

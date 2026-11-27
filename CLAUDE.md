@@ -116,7 +116,8 @@ pnpm make:big-site      # 1,000-device fixture for performance tests
 
 `/fg-next` → `/fg-start <id>` → build → test on tablet → `/fg-ship` → user
 merges → repeat. When a phase's tasks are done: `/fg-gate <phase>`. Before the
-first task of an `outline` spec: `/fg-spec refine <spec file>`. New ideas
+first task of an `outline` spec: `/fg-spec refine <spec file>`, unless the
+spec says which tasks may start earlier. New ideas
 from technicians or coordinators: `/fg-spec <idea>`, placed in a phase.
 
 ## Claude Code helpers in this repository
