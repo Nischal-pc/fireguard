@@ -1,7 +1,8 @@
 import { color, radius, size, space, text } from "@fireguard/ui-tokens";
 import { FlashList } from "@shopify/flash-list";
 import { useCallback, useEffect, useState } from "react";
-import { ActivityIndicator, Pressable, StatusBar, StyleSheet, Text, View } from "react-native";
+import { ActivityIndicator, Pressable, StyleSheet, Text, View } from "react-native";
+import { SafeAreaProvider, useSafeAreaInsets } from "react-native-safe-area-context";
 import { fetchPack, type JobPack, type PackResult } from "./src/api";
 
 // Expo inlines EXPO_PUBLIC_* at build time; only static dot access works.
@@ -13,6 +14,15 @@ const workOrder = process.env.EXPO_PUBLIC_WORK_ORDER;
 type Device = JobPack["disciplines"][number]["devices"][number];
 
 export default function App() {
+  return (
+    <SafeAreaProvider>
+      <Screen />
+    </SafeAreaProvider>
+  );
+}
+
+function Screen() {
+  const insets = useSafeAreaInsets();
   const [result, setResult] = useState<PackResult | null>(null);
 
   const load = useCallback(async () => {
@@ -33,7 +43,16 @@ export default function App() {
 
   return (
     <View style={styles.screen}>
-      <View style={styles.appBar}>
+      <View
+        style={[
+          styles.appBar,
+          {
+            paddingTop: insets.top,
+            paddingLeft: space.lg + insets.left,
+            paddingRight: space.lg + insets.right,
+          },
+        ]}
+      >
         <Text style={styles.appTitle}>FireGuard</Text>
         {devUserId ? (
           <Text style={styles.devBadge} accessibilityLabel="Signed in as development stand-in user">
@@ -42,12 +61,12 @@ export default function App() {
         ) : null}
       </View>
       {result === null ? (
-        <View style={styles.center}>
+        <View style={[styles.center, { paddingBottom: space.xxl + insets.bottom }]}>
           <ActivityIndicator size="large" color={color.fire} />
           <Text style={styles.secondary}>Loading job…</Text>
         </View>
       ) : !result.ok ? (
-        <View style={styles.center}>
+        <View style={[styles.center, { paddingBottom: space.xxl + insets.bottom }]}>
           <Text style={styles.error}>{result.error}</Text>
           <Pressable
             onPress={load}
@@ -58,13 +77,13 @@ export default function App() {
           </Pressable>
         </View>
       ) : (
-        <Job pack={result.pack} />
+        <Job pack={result.pack} bottomInset={insets.bottom} />
       )}
     </View>
   );
 }
 
-function Job({ pack }: { pack: JobPack }) {
+function Job({ pack, bottomInset }: { pack: JobPack; bottomInset: number }) {
   const { workOrder: wo, site, disciplines } = pack;
   const devices = disciplines.flatMap((d) => d.devices);
   return (
@@ -72,7 +91,7 @@ function Job({ pack }: { pack: JobPack }) {
       data={devices}
       keyExtractor={(d) => d.id}
       renderItem={({ item }) => <DeviceRow device={item} />}
-      contentContainerStyle={{ padding: space.lg }}
+      contentContainerStyle={{ padding: space.lg, paddingBottom: space.lg + bottomInset }}
       ListHeaderComponent={
         <View style={styles.card}>
           <Text style={styles.display}>{wo.softrendWo}</Text>
@@ -112,8 +131,6 @@ const styles = StyleSheet.create({
   screen: { flex: 1, backgroundColor: color.bone },
   appBar: {
     minHeight: size.appBar,
-    paddingTop: StatusBar.currentHeight ?? 0,
-    paddingHorizontal: space.lg,
     backgroundColor: color.fire,
     flexDirection: "row",
     alignItems: "center",
