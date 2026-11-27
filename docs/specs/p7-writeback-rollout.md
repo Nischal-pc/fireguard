@@ -2,6 +2,7 @@
 
 Phase: P7   Owner: <you>   Status: outline
 (Run `/fg-spec refine docs/specs/p7-writeback-rollout.md` first.)
+P7 may start in month 9 while P6 finishes; the P5 gate must pass first.
 
 ## Goal
 Finished jobs flow back into Softrend for billing without anyone retyping

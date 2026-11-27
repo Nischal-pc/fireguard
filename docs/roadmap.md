@@ -9,8 +9,9 @@ a **gate**: a test that must pass before the next phase starts (`/fg-gate`).
 - **approved**: detailed enough to build; `/fg-start` may start its tasks.
 - **outline**: goal, tasks and gate are agreed, details are not. Before the
   first task of an outline phase, run `/fg-spec refine <spec file>` and get
-  it approved, unless the spec names tasks that may start earlier. Plans made months ahead are always wrong in the details; we fill
-  them in with what we learned.
+  it approved, unless the spec names tasks that may start earlier. Plans made
+  months ahead are always wrong in the details; we fill them in with what we
+  learned.
 
 ## Stage 1 — Field platform (replaces the Softrend Service app)
 

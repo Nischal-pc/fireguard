@@ -64,7 +64,7 @@ PDF reports (P3), other disciplines (P3, P6), write-back to Softrend (P7).
       parallel with Softrend, and the results match
 - [ ] Every failed device has a photo and a deficiency
 - [ ] Sign-in works offline for a full day after signing in once (the full
-  7 days in `docs/architecture.md` is checked at the P4 gate)
+      7 days in `docs/architecture.md` is checked at the P4 gate)
 - [ ] Coordinator sees the jobs and progress in the portal
 - [ ] All performance budgets in `docs/architecture.md` that apply are met
 - [ ] `pnpm check` green; reviewers' verdicts recorded in each PR

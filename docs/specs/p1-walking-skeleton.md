@@ -29,7 +29,7 @@ screens.
 Photos, deficiencies, signatures, PDF, barcode, design polish, other
 disciplines, Softrend Bridge (we use the seeded sample site).
 
-## Tasks (in order — one pull request each)
+## Tasks (in order — one pull request each; P1.1 ships with P1.2)
 
 - **P1.1** Run the starter locally (database, migrations, seed, API).
 - **P1.2** Create `apps/mobile` with Expo; show the job pack from the API
